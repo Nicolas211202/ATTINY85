@@ -121,7 +121,7 @@ Para continuar lo primero es ir a “herramientas”, “placa” y seleccionamo
 
 Por fin vamos a poder subir nuestros juegos, ten en cuenta que el proceso que acabamos de hacer lo tienes que hacer solo una vez por cada microcontrolador que quieras programar, pero bueno, vamos a descargar este archivo ZIP con varios juegos creados por la comunidad, descomprimimos y abrimos un juego cualquiera, para nuestro caso vamos a usar “Space Attact” lo abres en tu IDE, debes asegurarte que la configuración quedo como lo hicimos previamente, y que el programador este en "Arduino as ISP", con el procesador ATtiny85, y el Clock a 8MHz, si ya lo verificaste entonces, con nuestro Arduino conectado y los puertos de comunicación ISP de la placa y el microcontrolador conectados compilamos y subimos nuestro archivo, y ¡LISTO ya tenemos toda la programación completa!
 
-## Realizamos coneciones
+## Realizamos conexiones
 
 Ya con muestro microcontrolador programado solo nos hace falta seguir este esquematico:
 

@@ -1,12 +1,12 @@
 # ATTINY_85
 
 ### Nicolas Sanchez Vargas 
-¡Bienvenido a este repositorio! Aquí aprenderás paso a paso todo lo necesario para realizar con tus propias manos una consola de bolsillo inpulsado por un micro controlador.
+¡Bienvenido a este repositorio! Aquí aprenderás paso a paso todo lo necesario para realizar con tus propias manos una consola de bolsillo impulsado por un micro controlador.
 
 
 # Consola portatil
 
-En este proyecto se indaga en el funcionamiento del micro controlador ATTINY_85 para el cual podras escojer uno de los juegos que te dejo en este repositorio, en caso que ninguno sea de tu agrado puedes subir a el microcontrolador cualquier otro mientras que sea de 8 Bits, para poder comprender todo este proyecto pondremos en práctica algunos conosimientos basicos de la electronica.
+En este proyecto se indaga en el funcionamiento del micro controlador ATTINY_85 para el cual podrás escoger uno de los juegos que te dejo en este repositorio, en caso que ninguno sea de tu agrado puedes subir a el microcontrolador cualquier otro mientras que sea de 8 Bits, para poder comprender todo este proyecto pondremos en práctica algunos conocimientos básicos de la electrónica. 
 
 ## Materiales
 -------------
@@ -61,9 +61,10 @@ Donde dice “URLd adicionales de gestor de placas” entramos y pegamos el sigu
 
 [![URL-2.png](https://i.postimg.cc/9fL3HFv3/URL-2.png)](https://postimg.cc/8FfXhDpw)
 
-Despues de estre poseso se deve darle aceptar en ambas ventanas emerjertes.
+Después de este proceso se debe darle aceptar en ambas ventanas emergentes.
 
 Este es un archivo JSON que le permitirá a nuestro IDE identificar nuestro microcontrolador, luego debes irte a esta sección de “herramientas”, “placa” y “gestor de placas” para así buscar ATtiny e instalarlo.
+
 
 [![placa.png](https://i.postimg.cc/FsvQSqbB/placa.png)](https://postimg.cc/0rV3RVBY)
 
@@ -74,11 +75,11 @@ Cuando termine la descarga se mostrara esta ventana .
 [![descarga-completada.png](https://i.postimg.cc/DwDjr4kw/descarga-completada.png)](https://postimg.cc/BjTBs6nr)
 
 
- Ahora cambiaremos la placa por la que descargamos iremos a  "Heramientas" buscamos donde dice "Placa: "Arduino Uno" " nos dirigimos a "attiny" y escojemos " ATiny25/45/85".
+Ahora cambiaremos la placa por la que descargamos iremos a  "Herramientas" buscamos donde dice "Placa: "Arduino Uno" " nos dirigimos a "attiny" y escogemos " ATiny25/45/85".
 
  [![cambio-de-placa.png](https://i.postimg.cc/43fvqzC5/cambio-de-placa.png)](https://postimg.cc/v4K66xZg)
 
-Continuamos cambiendo el Clock para esto nos dirijimos a "Herramientas" vamos a " Clock " y escojemos " Internal 8MHz" .
+Continuamos cambiando el Clock para esto nos dirigimos a "Herramientas" vamos a " Clock " y escogemos " Internal 8MHz" .
 
 [![cambio-de-clock.png](https://i.postimg.cc/0yQ24QWS/cambio-de-clock.png)](https://postimg.cc/xcw2J0Sj)
 
@@ -88,17 +89,17 @@ Esta parte puede ser un poco confusa pero iremos paso a paso, lo primero es abri
 
 [![ISP.png](https://i.postimg.cc/nrN5H3KB/ISP.png)](https://postimg.cc/JHcKxc2z)
 
- va a aparecer un código de ejemplo, lo siguiente es irnos a “herramientas” y en la sección de “placa” vamos a escoger nuestro Arduino, ya sea un Arduino UNO, MEGA o nano.
+Va a aparecer un código de ejemplo, lo siguiente es irnos a “herramientas” y en la sección de “placa” vamos a escoger nuestro Arduino, ya sea un Arduino UNO, MEGA o nano.
  
  [![subido-ejemplo.png](https://i.postimg.cc/SsPqM77N/subido-ejemplo.png)](https://postimg.cc/XG9TM5zT)
 
- Un error comun es la incorecta comunicacion enrte el puerto USB del computador y el arduino
+Un error común es la incorrecta comunicación entre el puerto USB del computador y el Arduino.
 
  [![Error-de-puerto.png](https://i.postimg.cc/SNNj8Dhk/Error-de-puerto.png)](https://postimg.cc/QVwXZgCy)
 
- Para solocionar eso se debe ir a "Herramientas" , " Puerto " y escojemos el puerto que recomienda en mi caso es COM3 pero en todos es diferente y cumple con la misma función.
+Para solucionar eso se debe ir a "Herramientas" , " Puerto " y escogemos el puerto que recomienda en mi caso es COM3 pero en todos es diferente y cumple con la misma función.
 
-  luego nos dirigimos a “programador” y verificamos que este en la opción "AVRISP mkII", y conectamos nuestro Arduino, subimos nuestro archivo al Arduino, esto lo hicimos para decirle a nuestro Arduino que va a funcionar como un programador, ya que los microcontroladores necesitan de uno para grabar la información dentro de ellos.
+luego nos dirigimos a “programador” y verificamos que este en la opción "AVRISP mkII", y conectamos nuestro Arduino, subimos nuestro archivo al Arduino, esto lo hicimos para decirle a nuestro Arduino que va a funcionar como un programador, ya que los microcontroladores necesitan de uno para grabar la información dentro de ellos.
 
 Ahora vamos a conectar nuestro IDE con el microcontrolador, para ello vamos a usar la comunicación ISP la cual te explicaremos más a fondo un video más adelante, pero para este proyecto te recomendamos seguir esta imagen:
 
@@ -120,12 +121,11 @@ Por fin vamos a poder subir nuestros juegos, ten en cuenta que el proceso que ac
 
 ## Realizamos conexiones
 
-Ya con muestro microcontrolador programado solo nos hace falta seguir este esquematico:
+Ya con muestro microcontrolador programado solo nos hace falta seguir este esquemático:
 
 >[![conecciones.png](https://i.postimg.cc/W1tSvXsQ/conecciones.png)](https://postimg.cc/w18D55yV)
 
-Ya cuendo allas logrado terminar y coroborar las conecciones podemos encenderlo y jugar con nuestra nueva consola portartil que tu mismo as creado !FELICIDADES LO CONSEGUISTE!
-
+Ya cuando hayas logrado terminar y corroborado las conexiones podemos encenderlo y jugar con nuestra nueva consola portátil que tu mismo as creado !FELICIDADES LO CONSEGUISTE!
 
 Ultimas recomendaciones 
 -------------

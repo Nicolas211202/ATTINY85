@@ -51,44 +51,44 @@ Procedimiento
 
  # Nuestro primer paso es programar el ATTINY
 
-Vamos a nuestro IDE de Arduino, lo primero que debemos hacer es instalar la tarjeta del ATtiny85 para que podamos subir el código en nuestro controlador, para eso debemos irnos a “archivo”, “preferencias” 
+Vamos a nuestro IDE de Arduino, lo primero que debemos hacer es instalar la tarjeta del ATtiny85 para que podamos subir el código en nuestro controlador, para eso debemos irnos a “archivo”, “preferencias” .
 
 [![preferencias-de-arduin0.png](https://i.postimg.cc/bJPZWLcV/preferencias-de-arduin0.png)](https://postimg.cc/nsdVQ4Lq)
 
-Donde dice “URLd adicionales de gestor de placas” entramos y pegamos el siguiente link " https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json " 
+Donde dice “URLd adicionales de gestor de placas” entramos y pegamos el siguiente link: "https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json " .
 
 [![URL.png](https://i.postimg.cc/fR4D8yhB/URL.png)](https://postimg.cc/zVksBJvg)
 
 [![URL-2.png](https://i.postimg.cc/9fL3HFv3/URL-2.png)](https://postimg.cc/8FfXhDpw)
 
-Despues de estre poseso se deve darle aceptar en ambas ventanas emerjertes
+Despues de estre poseso se deve darle aceptar en ambas ventanas emerjertes.
 
-, este es un archivo JSON que le permitirá a nuestro IDE identificar nuestro microcontrolador, luego debes irte a esta sección de “herramientas”, “placa” y “gestor de placas” para así buscar ATtiny e instalarlo,
+Este es un archivo JSON que le permitirá a nuestro IDE identificar nuestro microcontrolador, luego debes irte a esta sección de “herramientas”, “placa” y “gestor de placas” para así buscar ATtiny e instalarlo.
 
 [![placa.png](https://i.postimg.cc/FsvQSqbB/placa.png)](https://postimg.cc/0rV3RVBY)
 
 [![busqueda.png](https://i.postimg.cc/RFtj6QWm/busqueda.png)](https://postimg.cc/Ppt60DbV)
 
-Cuando termine la descarga se mostrara esta ventana 
+Cuando termine la descarga se mostrara esta ventana .
 
 [![descarga-completada.png](https://i.postimg.cc/DwDjr4kw/descarga-completada.png)](https://postimg.cc/BjTBs6nr)
 
 
- Ahora cambiaremos la placa por la que descargamos iremos a  "Heramientas" buscamos donde dice "Placa: "Arduino Uno" " nos dirigimos a "attiny" y escojemos " ATiny25/45/85"
+ Ahora cambiaremos la placa por la que descargamos iremos a  "Heramientas" buscamos donde dice "Placa: "Arduino Uno" " nos dirigimos a "attiny" y escojemos " ATiny25/45/85".
 
  [![cambio-de-placa.png](https://i.postimg.cc/43fvqzC5/cambio-de-placa.png)](https://postimg.cc/v4K66xZg)
 
-Continuamos cambiendo el Clock para esto nos dirijimos a "Herramientas" vamos a " Clock " y escojemos " Internal 8MHz" 
+Continuamos cambiendo el Clock para esto nos dirijimos a "Herramientas" vamos a " Clock " y escojemos " Internal 8MHz" .
 
 [![cambio-de-clock.png](https://i.postimg.cc/0yQ24QWS/cambio-de-clock.png)](https://postimg.cc/xcw2J0Sj)
 
 
 
-Esta parte puede ser un poco confusa pero iremos paso a paso, lo primero es abrir un sketch nuevo, vamos a “archivo”, “ejemplos” y buscamos “Arduino ISP” el numeral 11, y lo seleccionamos,
+Esta parte puede ser un poco confusa pero iremos paso a paso, lo primero es abrir un sketch nuevo, vamos a “archivo”, “ejemplos” y buscamos “Arduino ISP” el numeral 11, y lo seleccionamos.
 
 [![ISP.png](https://i.postimg.cc/nrN5H3KB/ISP.png)](https://postimg.cc/JHcKxc2z)
 
- va a aparecer un código de ejemplo, lo siguiente es irnos a “herramientas” y en la sección de “placa” vamos a escoger nuestro Arduino, ya sea un Arduino UNO, MEGA o nano,
+ va a aparecer un código de ejemplo, lo siguiente es irnos a “herramientas” y en la sección de “placa” vamos a escoger nuestro Arduino, ya sea un Arduino UNO, MEGA o nano.
  
  [![subido-ejemplo.png](https://i.postimg.cc/SsPqM77N/subido-ejemplo.png)](https://postimg.cc/XG9TM5zT)
 
@@ -96,12 +96,9 @@ Esta parte puede ser un poco confusa pero iremos paso a paso, lo primero es abri
 
  [![Error-de-puerto.png](https://i.postimg.cc/SNNj8Dhk/Error-de-puerto.png)](https://postimg.cc/QVwXZgCy)
 
- Para solocionar eso se debe ir a "Herramientas" , " Puerto " y escojemos el puerto que recomienda en mi caso es COM3 pero es todos es diferente 
+ Para solocionar eso se debe ir a "Herramientas" , " Puerto " y escojemos el puerto que recomienda en mi caso es COM3 pero en todos es diferente y cumple con la misma función.
 
-  luego nos dirigimos a “programador” y verificamos que este en la opción "AVRISP mkII",
-  
-  
-   conectamos nuestro Arduino, subimos nuestro archivo al Arduino, esto lo hicimos para decirle a nuestro Arduino que va a funcionar como un programador, ya que los microcontroladores necesitan de uno para grabar la información dentro de ellos.
+  luego nos dirigimos a “programador” y verificamos que este en la opción "AVRISP mkII", y conectamos nuestro Arduino, subimos nuestro archivo al Arduino, esto lo hicimos para decirle a nuestro Arduino que va a funcionar como un programador, ya que los microcontroladores necesitan de uno para grabar la información dentro de ellos.
 
 Ahora vamos a conectar nuestro IDE con el microcontrolador, para ello vamos a usar la comunicación ISP la cual te explicaremos más a fondo un video más adelante, pero para este proyecto te recomendamos seguir esta imagen:
 
@@ -139,5 +136,5 @@ Si tienes alguna pregunta o inquietud te puedes comunicar con nosotros.
 
 
 ## Creditos
-- Nicolas Sanchez
-- Juan Silva
+- Nicolas Sanchez Vargas
+- Juan Silva Medina

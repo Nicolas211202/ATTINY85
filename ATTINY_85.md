@@ -1,148 +1,327 @@
-# ATTINY_85
+# 🕹️ ATtiny85 Pocket Console
 
-### Nicolás Sánchez Vargas
+<div align="center">
 
-¡Bienvenido a este repositorio! Aquí aprenderás, paso a paso, todo lo necesario para construir con tus propias manos una consola de bolsillo impulsada por un microcontrolador.
+![ATtiny85](https://img.shields.io/badge/MCU-ATtiny85-orange?style=for-the-badge&logo=atmel&logoColor=white)
+![Arduino IDE](https://img.shields.io/badge/Arduino_IDE-1.8%2B-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+![Language](https://img.shields.io/badge/Language-C%2FC%2B%2B-blue?style=for-the-badge&logo=cplusplus&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
 
-# Consola portátil
+**Consola de videojuegos portátil construida desde cero con un microcontrolador ATtiny85, pantalla OLED y alimentada por una pila CR2032.**
 
-En este proyecto se explora el funcionamiento del microcontrolador ATTINY85. Podrás escoger uno de los juegos incluidos en este repositorio o, si lo prefieres, cargar cualquier otro juego compatible con 8 bits. Para comprender este proyecto, pondremos en práctica algunos conocimientos básicos de electrónica.
+[Juegos incluidos](#-juegos-incluidos) · [Hardware](#-hardware-requerido) · [Instalación](#-configuración-del-ide) · [Conexiones](#-diagrama-de-conexiones) · [Créditos](#-créditos)
 
-## Materiales
--------------
+</div>
 
-- Protoboard  
->[![protoboard.jpg](https://i.postimg.cc/BnbD4JMd/protoboard.jpg)](https://postimg.cc/w1K3kYKV)
+---
 
-- ATTINY85  
->[![ATTINY-85.webp](https://i.postimg.cc/MGyG842C/ATTINY-85.webp)](https://postimg.cc/zLGNCxf7)
+## 📋 Tabla de Contenidos
 
-- Jumpers  
->[![jumpers.jpg](https://i.postimg.cc/fWFQBK1m/jumpers.jpg)](https://postimg.cc/3Wgqwg8x)
+- [¿Qué es este proyecto?](#-qué-es-este-proyecto)
+- [Juegos incluidos](#-juegos-incluidos)
+- [Hardware requerido](#-hardware-requerido)
+- [Stack tecnológico](#-stack-tecnológico)
+- [Configuración del IDE](#-configuración-del-ide)
+- [Programar el ATtiny85](#-programar-el-attiny85)
+- [Diagrama de conexiones](#-diagrama-de-conexiones)
+- [Estructura del proyecto](#-estructura-del-proyecto)
+- [Quick Start](#-quick-start)
+- [Errores comunes](#-errores-comunes)
+- [Roadmap](#-roadmap)
+- [Contribuciones](#-contribuciones)
+- [Créditos](#-créditos)
+- [Licencia](#-licencia)
 
-- Arduino UNO  
->![arduino](https://user-images.githubusercontent.com/79547422/206583391-c520780f-7c52-415b-9109-3f37045955c3.JPG)
+---
 
-- Pantalla OLED LCD I2C  
->[![Pantalla-Oled-Lcd-I2c.jpg](https://i.postimg.cc/h4JTkDZ6/Pantalla-Oled-Lcd-I2c.jpg)](https://postimg.cc/Hjgr5gg9)
+## 🎮 ¿Qué es este proyecto?
 
-- Pila CR2032  
->[![pila-cr2032.jpg](https://i.postimg.cc/W3ccsb68/pila-cr2032.jpg)](https://postimg.cc/QBmybDzK)
+Una consola de bolsillo completamente funcional ensamblada sobre protoboard, programada con Arduino IDE y alimentada por el microcontrolador más pequeño de la familia AVR: el **ATtiny85**. Con tan solo 8 pines, 8KB de Flash y 512B de EEPROM, este proyecto demuestra cuánto se puede lograr con componentes mínimos.
 
-- Portabatería para pila CR2032  
->[![portapila-pila-cr-2032.jpg](https://i.postimg.cc/Nfk64Nzj/portapila-pila-cr-2032.jpg)](https://postimg.cc/bsdSYRP7)
+Incluye **7 juegos retro** listos para cargar, una pantalla OLED I2C de 128×64 px, pulsadores de control, zumbador para audio y alimentación con pila de botón CR2032.
 
-- Pulsadores  
->[![pulsadores.jpg](https://i.postimg.cc/NfrsvMXy/pulsadores.jpg)](https://postimg.cc/2VrR4C2m)
+---
 
-- Resistencias de 1K x3  
->[![resistencia-1k.jpg](https://i.postimg.cc/g2zGXK5h/resistencia-1k.jpg)](https://postimg.cc/svNkb53f)
+## 🕹️ Juegos Incluidos
 
-- Resistencia de 6.8K  
->[![resistencia-6-8k.jpg](https://i.postimg.cc/hvBkFDRm/resistencia-6-8k.jpg)](https://postimg.cc/34tSmHRr)
+| Archivo | Juego | Descripción |
+|---|---|---|
+| `SpaceAttackAttiny.ino` | 🚀 Space Attack | Shooter clásico de naves |
+| `Tetris_Attiny_Arcade.ino` | 🟦 Tetris | El clásico de bloques |
+| `Frogger_Attiny_Arcade.ino` | 🐸 Frogger | Cruza la calle sin morir |
+| `BatBonanzaAttinyArcade.ino` | 🦇 Bat Bonanza | Esquiva obstáculos volando |
+| `UFO_Stacker_Attiny.ino` | 🛸 UFO Stacker | Apila objetos con precisión |
+| `MorseAttinyArcade.ino` | 📡 Morse | Juego de código Morse |
+| `WrenRollercoasterAttinyArcade.ino` | 🎢 Wren Rollercoaster | Montaña rusa de alta velocidad |
 
-- Interruptor  
->[![suiche.jpg](https://i.postimg.cc/3xcz8CHY/suiche.jpg)](https://postimg.cc/w1DwFNvG)
+> ⚙️ Cada juego es un sketch independiente — solo necesitas subir el que quieras jugar.
 
-- Zumbador  
->[![sumbador.jpg](https://i.postimg.cc/YqmdNKcK/sumbador.jpg)](https://postimg.cc/TpfjGsYC)
+---
 
-## Procedimiento
--------------
+## 🔩 Hardware Requerido
 
-# Nuestro primer paso es programar el ATTINY85
+| Componente | Cantidad | Descripción |
+|---|---|---|
+| ATtiny85 | 1 | Microcontrolador principal (DIP-8) |
+| Arduino UNO | 1 | Usado como programador ISP (solo para grabar) |
+| Pantalla OLED I2C 128×64 | 1 | Display SSD1306, protocolo I2C |
+| Pulsadores | 3 | Controles del juego |
+| Resistencias 1KΩ | 3 | Pull-down para los pulsadores |
+| Resistencia 6.8KΩ | 1 | Divisor de voltaje / pull-up |
+| Zumbador (buzzer) | 1 | Audio y efectos de sonido |
+| Pila CR2032 | 1 | Alimentación portátil |
+| Portabatería CR2032 | 1 | Soporte para la pila |
+| Interruptor | 1 | Encendido / apagado |
+| Protoboard | 1 | Ensamblado sin soldadura |
+| Jumpers M-M | ~15 | Conexiones entre componentes |
+| Capacitor 10µF | 1 | Evitar auto-reset del Arduino durante la carga |
 
-Vamos a nuestro IDE de Arduino. Lo primero que debemos hacer es instalar la tarjeta del ATtiny85 para poder subir el código a nuestro controlador. Para ello, debemos ir a **“Archivo” → “Preferencias”**.
+---
 
-[![preferencias-de-arduin0.png](https://i.postimg.cc/bJPZWLcV/preferencias-de-arduin0.png)](https://postimg.cc/nsdVQ4Lq)
+## 🛠 Stack Tecnológico
 
-Donde dice **“URLs adicionales del gestor de placas”**, entramos y pegamos el siguiente enlace:
+| Capa | Tecnología | Versión |
+|---|---|---|
+| Microcontrolador | ATtiny85 (Atmel/Microchip) | — |
+| IDE | Arduino IDE | `1.8+` |
+| Board Package | damellis/attiny | `ide-1.6.x` |
+| Lenguaje | C / C++ (Arduino) | — |
+| Protocolo de programación | ISP (In-System Programming) | — |
+| Comunicación display | I2C (TWI) | — |
 
-`https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json`
+---
 
-[![URL.png](https://i.postimg.cc/fR4D8yhB/URL.png)](https://postimg.cc/zVksBJvg)
+## ⚙️ Configuración del IDE
 
-[![URL-2.png](https://i.postimg.cc/9fL3HFv3/URL-2.png)](https://postimg.cc/8FfXhDpw)
+### Paso 1 — Abrir preferencias
 
-Después de este proceso, se debe dar clic en **Aceptar** en ambas ventanas emergentes.
+Abre Arduino IDE y ve a **Archivo → Preferencias**.
 
-Este archivo JSON permitirá que nuestro IDE identifique el microcontrolador. Luego, debes ir a **“Herramientas” → “Placa” → “Gestor de placas”** para buscar **ATtiny** e instalarlo.
+[![preferencias](https://i.postimg.cc/bJPZWLcV/preferencias-de-arduin0.png)](https://postimg.cc/nsdVQ4Lq)
 
-[![placa.png](https://i.postimg.cc/FsvQSqbB/placa.png)](https://postimg.cc/0rV3RVBY)
+### Paso 2 — Agregar la URL del board package
 
-[![busqueda.png](https://i.postimg.cc/RFtj6QWm/busqueda.png)](https://postimg.cc/Ppt60DbV)
+Donde dice **"URLs adicionales del gestor de placas"**, haz clic en el ícono de la derecha y pega el siguiente enlace:
 
-Cuando termine la descarga, se mostrará esta ventana:
+```
+https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
+```
 
-[![descarga-completada.png](https://i.postimg.cc/DwDjr4kw/descarga-completada.png)](https://postimg.cc/BjTBs6nr)
+[![URL paso 1](https://i.postimg.cc/fR4D8yhB/URL.png)](https://postimg.cc/zVksBJvg)
 
-Ahora cambiaremos la placa por la que descargamos. Iremos a **“Herramientas”**, buscamos donde dice **“Placa: Arduino Uno”**, nos dirigimos a **“ATtiny”** y escogemos **“ATtiny25/45/85”**.
+[![URL paso 2](https://i.postimg.cc/9fL3HFv3/URL-2.png)](https://postimg.cc/8FfXhDpw)
 
-[![cambio-de-placa.png](https://i.postimg.cc/43fvqzC5/cambio-de-placa.png)](https://postimg.cc/v4K66xZg)
+Haz clic en **Aceptar** en ambas ventanas emergentes.
 
-Continuamos cambiando el **Clock**. Para esto, nos dirigimos a **“Herramientas” → “Clock”** y escogemos **“Internal 8MHz”**.
+### Paso 3 — Instalar la placa ATtiny
 
-[![cambio-de-clock.png](https://i.postimg.cc/0yQ24QWS/cambio-de-clock.png)](https://postimg.cc/xcw2J0Sj)
+Ve a **Herramientas → Placa → Gestor de placas**, busca `ATtiny` e instálalo.
 
-Esta parte puede ser un poco confusa, pero iremos paso a paso. Lo primero es abrir un sketch nuevo. Vamos a **“Archivo” → “Ejemplos”** y buscamos **“Arduino ISP”**, el numeral 11, y lo seleccionamos.
+[![gestor de placas](https://i.postimg.cc/FsvQSqbB/placa.png)](https://postimg.cc/0rV3RVBY)
 
-[![ISP.png](https://i.postimg.cc/nrN5H3KB/ISP.png)](https://postimg.cc/JHcKxc2z)
+[![búsqueda ATtiny](https://i.postimg.cc/RFtj6QWm/busqueda.png)](https://postimg.cc/Ppt60DbV)
 
-Va a aparecer un código de ejemplo. Lo siguiente es ir a **“Herramientas”** y, en la sección de **“Placa”**, escoger nuestro Arduino, ya sea un **Arduino UNO, MEGA o Nano**.
+Cuando termine la descarga verás esta confirmación:
 
-[![subido-ejemplo.png](https://i.postimg.cc/SsPqM77N/subido-ejemplo.png)](https://postimg.cc/XG9TM5zT)
+[![descarga completada](https://i.postimg.cc/DwDjr4kw/descarga-completada.png)](https://postimg.cc/BjTBs6nr)
 
-Un error común es la incorrecta comunicación entre el puerto USB del computador y el Arduino.
+### Paso 4 — Configurar los parámetros de la placa
 
-[![Error-de-puerto.png](https://i.postimg.cc/SNNj8Dhk/Error-de-puerto.png)](https://postimg.cc/QVwXZgCy)
+Ve a **Herramientas → Placa → ATtiny → ATtiny25/45/85**:
 
-Para solucionar eso, se debe ir a **“Herramientas” → “Puerto”** y escoger el puerto recomendado. En mi caso es **COM3**, pero puede variar en cada computador.
+[![cambio de placa](https://i.postimg.cc/43fvqzC5/cambio-de-placa.png)](https://postimg.cc/v4K66xZg)
 
-Luego nos dirigimos a **“Programador”** y verificamos que esté en la opción **“AVRISP mkII”**. Conectamos nuestro Arduino y subimos el archivo. Esto lo hacemos para indicarle al Arduino que funcionará como programador, ya que los microcontroladores necesitan uno para grabar la información en su memoria.
+Luego ve a **Herramientas → Clock** y selecciona **Internal 8MHz**:
 
-Ahora vamos a conectar nuestro IDE con el microcontrolador. Para ello vamos a usar la comunicación **ISP**, la cual explicaremos más a fondo en un video más adelante, pero para este proyecto te recomendamos seguir esta imagen:
+[![cambio de clock](https://i.postimg.cc/0yQ24QWS/cambio-de-clock.png)](https://postimg.cc/xcw2J0Sj)
 
->[![coneccion-arduino-PSI-a-ATTINY-85.png](https://i.postimg.cc/BnKvW8v5/coneccion-arduino-PSI-a-ATTINY-85.png)](https://postimg.cc/Snm4CxCj)
+---
 
-Para continuar, lo primero es ir a **“Herramientas” → “Placa”** y seleccionar **“ATtiny25/45/85”**. Luego, en el mismo menú de **“Herramientas”**, en **“Procesador”**, seleccionamos **“ATtiny85”**, que es nuestra placa. Después, en **“Clock”**, seleccionamos **8MHz**, que es la frecuencia a la que se van a comunicar nuestras tarjetas.
+## 🔌 Programar el ATtiny85
 
-Ahora vamos a **“Herramientas”** y, en **“Programador”**, tenemos que seleccionar **“Arduino as ISP”**. Por último, debemos verificar que nuestro Arduino esté conectado a los puertos ISP tanto de la placa como del controlador. Verificado esto, nos vamos a **“Herramientas” → “Grabar Bootloader”**. Los LEDs que indican la comunicación **Rx/Tx** deben parpadear después de que el proceso esté completo.
+El ATtiny85 no tiene puerto USB propio, así que se programa usando un **Arduino UNO como ISP** (In-System Programmer). El proceso completo tiene tres fases y solo las dos primeras se hacen una sola vez.
 
-[![cambio-de-placa.png](https://i.postimg.cc/43fvqzC5/cambio-de-placa.png)](https://postimg.cc/v4K66xZg)
+---
 
-[![procesador.png](https://i.postimg.cc/sfZqDR8h/procesador.png)](https://postimg.cc/K4xJJCmG)
+### Fase 1 — Convertir el Arduino UNO en programador
 
-[![cambio-de-clock.png](https://i.postimg.cc/0yQ24QWS/cambio-de-clock.png)](https://postimg.cc/xcw2J0Sj)
+**1.** Ve a **Archivo → Ejemplos → 11.ArduinoISP** y ábrelo:
 
-[![programador-ISP.png](https://i.postimg.cc/8P7RV1n2/programador-ISP.png)](https://postimg.cc/JGWDNW8x)
+[![ArduinoISP](https://i.postimg.cc/nrN5H3KB/ISP.png)](https://postimg.cc/JHcKxc2z)
 
-[![quemar.png](https://i.postimg.cc/JnNL0D4G/quemar.png)](https://postimg.cc/gX25B0hW)
+**2.** Asegúrate de que la placa esté en **Arduino UNO** (o la que uses: MEGA, Nano):
 
-Por fin vamos a poder subir nuestros juegos. Ten en cuenta que el proceso que acabamos de hacer solo se realiza una vez por cada microcontrolador que quieras programar. Ahora vamos a descargar el archivo ZIP con varios juegos creados por la comunidad, lo descomprimimos y abrimos cualquier juego. En nuestro caso, vamos a usar **“Space Attack”**.
+[![placa Arduino UNO](https://i.postimg.cc/SsPqM77N/subido-ejemplo.png)](https://postimg.cc/XG9TM5zT)
 
-Lo abres en tu IDE y debes asegurarte de que la configuración quede como la hicimos previamente: el programador en **“Arduino as ISP”**, el procesador en **ATtiny85** y el **Clock a 8MHz**. Si ya lo verificaste, entonces, con nuestro Arduino conectado y los puertos de comunicación ISP de la placa y el microcontrolador correctamente conectados, compilamos y subimos el archivo.
+**3.** Si aparece un error de puerto, ve a **Herramientas → Puerto** y selecciona el puerto correcto (en Windows suele ser `COM3`, pero puede variar):
 
-¡Listo! Ya tenemos toda la programación completa.
+[![error de puerto](https://i.postimg.cc/SNNj8Dhk/Error-de-puerto.png)](https://postimg.cc/QVwXZgCy)
 
-## Realizamos conexiones
+**4.** Verifica que en **Herramientas → Programador** esté seleccionado **AVRISP mkII** y sube el sketch. Esto le indica al Arduino que funcionará como programador externo.
 
-Ya con nuestro microcontrolador programado, solo nos hace falta seguir este esquemático:
+**5.** Añade un **capacitor de 10µF entre GND y RESET** del Arduino para evitar que se reinicie solo durante la carga.
 
->[![conecciones.png](https://i.postimg.cc/W1tSvXsQ/conecciones.png)](https://postimg.cc/w18D55yV)
+---
 
-Cuando hayas terminado y corroborado las conexiones, podrás encenderlo y jugar con tu nueva consola portátil que tú mismo has creado.
+### Fase 2 — Grabar el Bootloader al ATtiny85
 
-# ¡FELICIDADES, LO CONSEGUISTE!
+Conecta el ATtiny85 al Arduino UNO siguiendo este diagrama:
 
-## Últimas recomendaciones
--------------
+[![conexión Arduino ISP a ATtiny85](https://i.postimg.cc/BnKvW8v5/coneccion-arduino-PSI-a-ATTINY-85.png)](https://postimg.cc/Snm4CxCj)
 
-Si tienes alguna pregunta o inquietud, te puedes comunicar con nosotros:
+Luego configura el IDE así:
 
-- [Instagram]([https://www.instagram.com/zicam_tecnologia/](https://www.instagram.com/atlion_robotics?igsh=MTBndm1idTkwd29oaw%3D%3D&utm_source=qr))
+**Placa → ATtiny25/45/85:**
 
+[![cambio de placa](https://i.postimg.cc/43fvqzC5/cambio-de-placa.png)](https://postimg.cc/v4K66xZg)
 
-## Créditos
+**Procesador → ATtiny85:**
 
-- Nicolás Sánchez Vargas
-- Juan Silva Medina
+[![procesador](https://i.postimg.cc/sfZqDR8h/procesador.png)](https://postimg.cc/K4xJJCmG)
+
+**Clock → Internal 8MHz:**
+
+[![clock 8MHz](https://i.postimg.cc/0yQ24QWS/cambio-de-clock.png)](https://postimg.cc/xcw2J0Sj)
+
+**Programador → Arduino as ISP:**
+
+[![programador ISP](https://i.postimg.cc/8P7RV1n2/programador-ISP.png)](https://postimg.cc/JGWDNW8x)
+
+Por último, ve a **Herramientas → Grabar Bootloader**:
+
+[![grabar bootloader](https://i.postimg.cc/JnNL0D4G/quemar.png)](https://postimg.cc/gX25B0hW)
+
+Los LEDs Rx/Tx del Arduino parpadearán mientras se graba. Cuando terminen, ¡el ATtiny85 está listo!
+
+> ✅ **Este proceso (Fases 1 y 2) solo se realiza una vez por cada microcontrolador.** A partir de aquí solo necesitas subir los sketches de los juegos.
+
+---
+
+### Fase 3 — Subir un juego
+
+Con la misma configuración de la Fase 2 activa, abre cualquier `.ino` de este repositorio y haz clic en **Subir**. El sketch quedará grabado en el ATtiny85 y el juego iniciará automáticamente al encender la consola.
+
+---
+
+## 📐 Diagrama de Conexiones — Consola Final
+
+Con el ATtiny85 ya programado, arma el circuito completo en la protoboard siguiendo este esquemático:
+
+[![conexiones consola](https://i.postimg.cc/W1tSvXsQ/conecciones.png)](https://postimg.cc/w18D55yV)
+
+> 📌 Cuando hayas terminado y verificado todas las conexiones, enciende el interruptor y podrás jugar con tu consola portátil.
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+ATTINY85/
+│
+├── SpaceAttackAttiny.ino               # 🚀 Space Attack
+├── Tetris_Attiny_Arcade.ino            # 🟦 Tetris
+├── Frogger_Attiny_Arcade.ino           # 🐸 Frogger
+├── BatBonanzaAttinyArcade.ino          # 🦇 Bat Bonanza
+├── UFO_Stacker_Attiny.ino              # 🛸 UFO Stacker
+├── MorseAttinyArcade.ino               # 📡 Morse
+├── WrenRollercoasterAttinyArcade.ino   # 🎢 Wren Rollercoaster
+│
+├── ATTINY_85.md                        # Guía de construcción detallada
+├── games.md                            # Info adicional de juegos
+└── README.md                           # Este archivo
+```
+
+---
+
+## 🚀 Quick Start
+
+```
+1. Instala Arduino IDE 1.8+
+2. Agrega el board package del ATtiny85 (ver sección de configuración)
+3. Sube ArduinoISP a tu Arduino UNO
+4. Conecta el ATtiny85 al Arduino según el diagrama ISP
+5. Graba el Bootloader al ATtiny85
+6. Abre cualquier .ino de este repo
+7. Sube el sketch → ¡a jugar!
+```
+
+---
+
+## ⚠️ Errores Comunes
+
+| Error | Causa | Solución |
+|---|---|---|
+| `avrdude: stk500_recv()` | Puerto COM incorrecto | Ve a **Herramientas → Puerto** y selecciona el correcto |
+| `programmer not responding` | Falta el capacitor 10µF | Añade el capacitor entre GND y RESET del Arduino |
+| Pantalla en blanco | Dirección I2C incorrecta | Verifica si tu OLED usa `0x3C` o `0x3D` |
+| El juego no inicia | Clock mal configurado | Confirma que el Clock esté en **Internal 8MHz** |
+| Error de compilación | Placa incorrecta seleccionada | Verifica que la placa sea **ATtiny25/45/85** y procesador **ATtiny85** |
+
+---
+
+## 🗺 Roadmap
+
+- [ ] PCB personalizado para la consola (reemplazar protoboard)
+- [ ] Case / carcasa 3D imprimible
+- [ ] Soporte para batería recargable (LiPo + TP4056)
+- [ ] Agregar más juegos compatibles con 8KB de Flash
+- [ ] Tutorial en video paso a paso en YouTube
+- [ ] Versión con Digispark (ATtiny85 con USB integrado)
+
+---
+
+## 🤝 Contribuciones
+
+¡Los PRs son bienvenidos! Si tienes un juego compatible o mejoras al hardware:
+
+1. **Fork** este repositorio
+2. Crea tu rama:
+   ```bash
+   git checkout -b feature/nuevo-juego
+   ```
+3. Commitea con mensajes descriptivos:
+   ```bash
+   git commit -m "feat: agregar juego Snake para ATtiny85"
+   ```
+4. Sube tu rama y abre un **Pull Request**
+
+### Requisitos para agregar un juego nuevo
+
+- Debe compilar para **ATtiny85 a 8MHz**
+- No debe superar los **8KB de Flash**
+- Debe funcionar con pantalla **SSD1306 I2C 128×64**
+- Incluye una descripción breve del juego en el PR
+
+---
+
+## 👨‍💻 Créditos
+
+**Nicolás Sánchez Vargas**
+- GitHub: [@Nicolas211202](https://github.com/Nicolas211202)
+- LinkedIn: [linkedin.com/in/nicolas-sanchez-56261522a](https://www.linkedin.com/in/nicolas-sanchez-56261522a/)
+
+**Juan Silva Medina**
+
+**Comunidad & Redes**
+- Instagram: [@atlion_robotics](https://www.instagram.com/atlion_robotics?igsh=MTBndm1idTkwd29oaw%3D%3D&utm_source=qr)
+- YouTube: [@zicamtech](https://www.youtube.com/@zicamtech)
+
+> Los juegos incluidos fueron desarrollados originalmente por la comunidad de [electronoobs.com](https://electronoobs.com/eng_arduino_tut120_code1.php).
+
+---
+
+## 📄 Licencia
+
+Distribuido bajo la licencia **MIT**. Consulta el archivo [`LICENSE`](./LICENSE) para más detalles.
+
+```
+MIT License — Copyright (c) 2025 Nicolás Sánchez Vargas
+```
+
+---
+
+<div align="center">
+  <sub>Hecho con ❤️, un microcontrolador de 8 pines y muchos jumpers · ¿Te gustó? Dale una ⭐ al repo</sub>
+</div>
